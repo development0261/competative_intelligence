@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ads Aknowlwdger - updates about ads </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="E-Ads" name="keywords">
+    <meta content="E-Ads" name="description">
+    <!-- <script type="module" src="{% static 'main_fcm.js' %}"></script> -->
+    
+        
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+        import { getMessaging ,getToken, onMessage  } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js";
+       
+    
+        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        // import { analytics } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js';
+
+        // Add Firebase products that you want to use
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+        // import {  } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+               
+        const firebaseConfig = {
+            apiKey: "AIzaSyC5550kgB5r8Ixz8lq2TRwpkA-fuqHFhK8",
+            authDomain: "webscrap-b57b5.firebaseapp.com",
+            databaseURL: "https://webscrap-b57b5-default-rtdb.firebaseio.com",
+            projectId: "webscrap-b57b5",
+            storageBucket: "webscrap-b57b5.appspot.com",
+            messagingSenderId: "485507184772",
+            appId: "1:485507184772:web:b7d3ebf7c3703a127dead1",
+            measurementId: "G-GVN5CF6X4S"
+        };
+
+            // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const web_analytics = getAnalytics(app);
+        // const messaging = firebase.messaging();
+        const messaging = getMessaging(app);
+        // console.log("Hello",messaging);
+        // console.log("messaging",messaging.firebaseDependencies.installations.getId())
+        // console.log("getToken", getToken)
+        getToken(messaging,{vapidKey: 'BBoUvR7czxCunlbl8syhGkdaeZVzlZlnRWQ6K9JeYWmdcL3tZr7i9ZmbKP5mZse87N2wLicQ6QAOGKXn7W9EP90'})
+        // messaging.firebaseDependencies.installations.getToken({vapidKey: 'BBoUvR7czxCunlbl8syhGkdaeZVzlZlnRWQ6K9JeYWmdcL3tZr7i9ZmbKP5mZse87N2wLicQ6QAOGKXn7W9EP90'})
+        .then(
+            (res)=> {
+                console.log("response data", res)
+                // ("#reg_token").val(res);
+                // document.getElementById("reg_token").value = res;
+                // $.ajax({
+                //     url: "send", 
+                //     type: "POST",
+                //     data: {token: res},    
+                //     success: function(result){
+                //         console.log("result ==> ",result)
+                //     }
+                // });
+                $(document).ready(function(){
+                    console.log("===>", res)
+                    $.ajax({ url: "token/",
+                        type: "POST",
+                        data: {token: res},
+                        success: setTimeout(function(){
+                            alert("done");
+                        }, 5000)
+                    });
+                });
+                
+            }
+        
+        ).catch(
+            (error)=>{
+                console.log('e', error)
+            } 
+        )
+
+        onMessage((payload) => {
+        console.log('Message received. ', payload);
+    });
+        // messaging.setBackgroundMessageHandler(function (payload) {
+        //      console.log(payload);
+        //      const notification=JSON.parse(payload);
+        //      const notificationOption={
+        //          body:notification.body,
+        //          icon:notification.icon
+        //      };
+        //      return self.registration.showNotification(payload.notification.title,notificationOption);
+        //  });
+        
+    </script>
+    
+
+    <!-- Favicon -->
+    <link href="{% static 'img\favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib\owlcarousel\assets\owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css\style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+     
+    <div class="container-fluid d-none d-lg-block">
+        <div class="row align-items-center py-4 px-xl-5">
+            <div class="col-lg-3">
+                <a href="" class="text-decoration-none">
+                    <h1 class="m-0"><span class="text-primary">E</span> Ads Search</h1>
+                </a>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
+                        <small>123 India</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
+                        <small>info@example.com</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <!-- <i class="fa fa-2x fa-phone text-primary mr-3"></i> -->
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1"> Notifications</h6>
+                        <small>123456</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+
+    <!-- Search Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"></h5> -->
+                <h1>Enter the Keyword for the Product Ads</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-secondary rounded p-5">
+                        <div id="search_keyword"></div>
+                        <form action="" name="search_keyword" id="keyword_form" novalidate="novalidate" method="POST">
+                            {% csrf_token %}
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="search_box" placeholder="Search keyword" required="required" data-validation-required-message="Please enter your name" />
+                                <!-- <input type="text" class="form-control border-0 p-4" id="reg_token" name="reg_token"/> -->
+                                <!-- <input type="hidden" id="reg_token" name="token" /> -->
+                                <p class="help-block text-danger"></p>
+                            </div>
+                           
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="searchButton">SEARCH</button>
+                            </div>
+                        </form> 
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Search Result Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="text-center">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"></h5>
+                <h1>Search Results:-</h1>
+            </div>
+            <div class="row">
+                {% for item in res %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="{% static 'img/course-1.jpg' %}" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Id:- {{item}}</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>Type:- </small>
+                            </div>
+                            <h3>Content:-</h3>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Search Result End -->
+
+
+    
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib\easing\easing.min.js' %}"></script>
+    <script src="{% static 'lib\owlcarousel\owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail\jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail\contact.js' %}"></script>
+    <!-- <script src="{% static 'js\firebase-cloud-messaging-push-scope.js' %}"></script> -->
+    <!-- Template Javascript -->
+    <script src="{% static 'js\main.js' %}"></script>
+    </script>
+
+    
+
+</body>
+</html>
