@@ -1,0 +1,322 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ads Aknowlwdger - updates about ads </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="E-Ads" name="keywords">
+    <meta content="E-Ads" name="description">
+    <!-- <script type="module" src="{% static 'main_fcm.js' %}"></script> -->
+    <script>
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js');
+        });
+
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-messaging.js"></script>
+        
+    <script type="module">
+        // importScripts('/__/firebase/9.2.0/firebase-app-compat.js');
+        // importScripts('/__/firebase/9.2.0/firebase-messaging-compat.js');
+        // importScripts('/__/firebase/init.js');
+
+        // const temp = firebase.messaging();
+
+        
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+        // import { getToken , onMessage} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js";
+        // import { getMessaging,onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-sw.js";
+        // import {  } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js";
+        
+        // import { getMessaging } from "../firebase/messaging/sw";
+
+        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        // import { analytics } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js';
+
+        // Add Firebase products that you want to use
+        // import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+        // import { onBackgroundMessage, onMessage } from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js';
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional            
+               
+        const firebaseConfig = {           
+            apiKey: "AIzaSyBSPe5tQax3sjneTtqDrKNdqTgHidN822M",
+            authDomain: "competitive-intelligence-4a07d.firebaseapp.com",
+            projectId: "competitive-intelligence-4a07d",
+            storageBucket: "competitive-intelligence-4a07d.appspot.com",
+            messagingSenderId: "937746016632",
+            appId: "1:937746016632:web:a0e471e384651de7ce808d",
+            measurementId: "G-SG2JFK5C72"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+            // Initialize Firebase
+        // const app = initializeApp(firebaseConfig);
+        // const web_analytics = getAnalytics(app);
+        // const messaging = firebas``e.messaging();
+        // const messaging = getMessaging(app);
+        const messaging = firebase.messaging();
+
+        messaging.get
+
+        // console.log("Hello",messaging);
+        // console.log("messaging",messaging.firebaseDependencies.installations.getId())
+        // console.log("getToken", getToken)
+        messaging.getToken({vapidKey: 'BIurgCjjco4p9Jt8WbdMeA_JY8VGmBQKfJTXmCNzwRKNzRmUbB4ELC2xTii3iGkOjIG28N6dwkI10wkkJlPcYWE'})
+        // messaging.firebaseDependencies.installations.getToken({vapidKey: 'BBoUvR7czxCunlbl8syhGkdaeZVzlZlnRWQ6K9JeYWmdcL3tZr7i9ZmbKP5mZse87N2wLicQ6QAOGKXn7W9EP90'})
+        .then(
+            (res)=> {
+                console.log("response data", res)
+                
+                $(document).ready(function(){
+                    console.log("===>", res)
+                    $.ajax({ url: "token/",
+                        type: "POST",
+                        data: {token: res},
+                        success:function(){
+                            
+                        }
+                    });
+                });
+                
+            }
+        
+        ).catch(
+            (error)=>{
+                console.log('e', error)
+            } 
+        )
+
+        messaging.onMessage(function(payload){
+            alert("new");
+        console.log("on Message",payload);
+        });
+
+        // onBackground ((payload) => {
+        //     console.log('[firebase-messaging-sw.js] Received background message ', payload);
+        //     // Customize notification here
+        //     const notificationTitle = 'Background Message Title';
+        //     const notificationOptions = {
+        //         body: 'Background Message body.',
+        //         icon: '/firebase-logo.png'
+        //     };
+
+        //     self.registration.showNotification(notificationTitle,
+        //         notificationOptions);
+        //     });
+        // console.log('before onMessage', payload)
+        // const temp= getMessaging();
+        // // console.log('Message received. ',temp);
+        // // console.log('Message received. ',messaging);
+        // onMessage(messaging, (payload) => {
+        //    alert('inside onMessage');
+        //     console.log('Message received. ', payload);
+        //         // ...
+        //     });
+
+
+        // messaging.setBackgroundMessageHandler(function (payload) {
+        //      console.log(payload);
+        //      const notification=JSON.parse(payload);
+        //      const notificationOption={
+        //          body:notification.body,
+        //          icon:notification.icon
+        //      };
+        //      return self.registration.showNotification(payload.notification.title,notificationOption);
+        //  });
+        
+    </script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js');
+      });
+    }
+  </script>
+    
+
+    <!-- Favicon -->
+    <link href="{% static 'img\favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib\owlcarousel\assets\owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css\style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+     
+    <div class="container-fluid d-none d-lg-block">
+        <div class="row align-items-center py-4 px-xl-5">
+            <div class="col-lg-3">
+                <a href="" class="text-decoration-none">
+                    <h1 class="m-0"><span class="text-primary">E</span> Ads Search</h1>
+                </a>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
+                        <small>123 India</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
+                        <small>info@example.com</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <!-- <i class="fa fa-2x fa-phone text-primary mr-3"></i> -->
+                    <div class="text-left">
+                        <h6 class="font-weight-semi-bold mb-1"> Notifications</h6>
+                        <small>123456</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+
+    <!-- Search Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"></h5> -->
+                <h1>Enter the Keyword for the Product Ads</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-secondary rounded p-5">
+                        <div id="search_keyword"></div>
+                        <form action="" name="search_keyword" id="keyword_form" novalidate="novalidate" method="POST">
+                            {% csrf_token %}
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="search_box" placeholder="Search keyword" required="required" data-validation-required-message="Please enter your name" />
+                                <!-- <input type="text" class="form-control border-0 p-4" id="reg_token" name="reg_token"/> -->
+                                <!-- <input type="hidden" id="reg_token" name="token" /> -->
+                                <p class="help-block text-danger"></p>
+                            </div>
+                           
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="searchButton">SEARCH</button>
+                            </div>
+                        </form> 
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Search Result Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="text-center">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"></h5>
+                <h1>Search Results:-</h1>
+            </div>
+            <div class="row">
+                {% for item in req_data %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="{% static 'img/course-1.jpg' %}" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Id:- {{item.ads_id}}</small><br>
+                            </div>
+                            <div>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>Type:-{{item.ads_status}} </small><br>
+                            </div>
+                            <div>
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Id:- {{item.ads_date}}</small><br>
+                            </div>
+                            <div>
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Id:- {{item.ads_owner_name}}</small><br>
+                            </div>
+                            <div>
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Id:- {{item.ads_owner_idlink}}</small><br>
+                            </div>
+                            <h3>Content:-</h3>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Search Result End -->
+
+
+    
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib\easing\easing.min.js' %}"></script>
+    <script src="{% static 'lib\owlcarousel\owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail\jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail\contact.js' %}"></script>
+    <!-- <script src="{% static 'js\firebase-cloud-messaging-push-scope.js' %}"></script> -->
+    <!-- Template Javascript -->
+    <script src="{% static 'js\main.js' %}"></script>
+    </script>
+
+    
+
+</body>
+</html>
