@@ -35,7 +35,7 @@ def scrape(country_name,search_keyword):
         path= "webscrap\chromedriver"
 
     # driver initialization 
-    driver = webdriver.Chrome(path,Options=option)
+    driver = webdriver.Chrome(path,options=option)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
