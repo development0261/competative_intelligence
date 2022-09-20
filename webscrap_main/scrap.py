@@ -17,6 +17,10 @@ import requests
 import json
 import random
 
+import os
+
+
+
 
 # Setup
 cred = credentials.Certificate("competitive-intelligence-4a07d-firebase-adminsdk-s6a5i-2a74042bdc.json")
@@ -29,17 +33,21 @@ def get_rand():
     return random.uniform(2.0, 2.9)
 
 def scrape(country_name,search_keyword):
-    option = webdriver.ChromeOptions()
-    option.add_argument('headless')
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     website = 'https://www.facebook.com/ads/library/'
-    print("++++++++++++++",platform)
-    if platform =="win32":
-        path = 'chromedriver.exe' 
-    else:
-        path= "chromedriver"
+    # print("++++++++++++++",platform)
+    # if platform =="win32":
+    #     path = 'chromedriver.exe' 
+    # else:
+    #     path= "chromedriver"
 
-    # driver initialization 
-    driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=option)
+    # # driver initialization 
+    # driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=option)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
