@@ -18,8 +18,10 @@ debugpy==1.6.3
 decorator==5.1.1
 defusedxml==0.7.1
 distlib==0.3.6
-Django==3.2
+dj-database-url==1.0.0
+Django==4.1.1
 django-extensions==3.2.0
+django-on-heroku==1.1.2
 entrypoints==0.4
 executing==1.0.0
 facebook-sdk==3.1.0
@@ -82,6 +84,7 @@ prompt-toolkit==3.0.31
 proto-plus==1.22.0
 protobuf==4.21.5
 psutil==5.9.2
+psycopg2-binary==2.9.3
 pure-eval==0.2.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -121,5 +124,6 @@ urllib3==1.26.12
 virtualenv==20.16.5
 wcwidth==0.2.5
 webencodings==0.5.1
+whitenoise==6.2.0
 widgetsnbextension==4.0.3
 wsproto==1.2.0
