@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import requests
 import json
@@ -35,7 +35,7 @@ def scrape(country_name,search_keyword):
         path= "../chromedriver"
 
     # driver initialization 
-    driver = webdriver.Chrome(path,options=option)
+    driver = webdriver.Chrome(ChromeDriverManager().install(),options=option)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
