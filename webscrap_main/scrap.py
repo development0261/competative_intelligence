@@ -8,7 +8,10 @@ from selenium.webdriver.chrome.options import Options
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+# from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromiumService
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.utils import ChromeType
 import time
 import requests
 import json
@@ -29,13 +32,14 @@ def scrape(country_name,search_keyword):
     option = webdriver.ChromeOptions()
     option.add_argument('headless')
     website = 'https://www.facebook.com/ads/library/'
+    print("++++++++++++++",platform)
     if platform =="win32":
-        path = '../chromedriver.exe' 
+        path = 'chromedriver.exe' 
     else:
-        path= "../chromedriver"
+        path= "chromedriver"
 
     # driver initialization 
-    driver = webdriver.Chrome(ChromeDriverManager().install(),options=option)
+    driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=option)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
