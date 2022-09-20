@@ -30,9 +30,9 @@ def scrape(country_name,search_keyword):
     option.add_argument('headless')
     website = 'https://www.facebook.com/ads/library/'
     if platform =="win32":
-        path = 'chromedriver.exe' 
+        path = '../chromedriver.exe' 
     else:
-        path= "chromedriver"
+        path= "../chromedriver"
 
     # driver initialization 
     driver = webdriver.Chrome(path,options=option)
