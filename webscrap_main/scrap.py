@@ -1,7 +1,7 @@
 
 from selenium import webdriver 
 from selenium.webdriver.common.keys import Keys
-
+from sys import platform
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
@@ -28,7 +28,10 @@ def get_rand():
 def scrape(country_name,search_keyword):
    
     website = 'https://www.facebook.com/ads/library/'
-    path = 'F:\company projects\web_scapping\webscrap\chromedriver' 
+    if platform =="win32":
+        path = 'webscrap\chromedriver.exe' 
+    else:
+        path= "webscrap\chromedriver"
 
     # driver initialization 
     driver = webdriver.Chrome(path)
