@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from sys import platform
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-
+from selenium.webdriver.chrome.options import Options
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -26,7 +26,8 @@ def get_rand():
     return random.uniform(2.0, 2.9)
 
 def scrape(country_name,search_keyword):
-   
+    option = webdriver.ChromeOptions()
+    option.add_argument('headless')
     website = 'https://www.facebook.com/ads/library/'
     if platform =="win32":
         path = 'webscrap\chromedriver.exe' 
@@ -34,7 +35,7 @@ def scrape(country_name,search_keyword):
         path= "webscrap\chromedriver"
 
     # driver initialization 
-    driver = webdriver.Chrome(path)
+    driver = webdriver.Chrome(path,Options=option)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
