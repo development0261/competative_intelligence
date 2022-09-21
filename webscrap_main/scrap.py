@@ -56,9 +56,12 @@ def scrape(country_name,search_keyword):
     # driver = webdriver.Chrome(path)
     # open Google Chrome with chromedriver
     driver.get(website)
+    
     # time to wait(in sec) till page gets loaded 
-    time.sleep(get_rand())
+    time.sleep(5)
+    print("after website******************************")
     insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
+    print("***************after insert*-*********************")
     # selecting the country 
     # country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
     country=insert_data[0]
