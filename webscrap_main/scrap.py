@@ -9,8 +9,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 # from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service as ChromiumService
-from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service as ChromiumService
+# from webdriver_manager.chrome import ChromeDriverManager
 # from webdriver_manager.core.utils import ChromeType
 import time
 import requests
@@ -44,8 +44,8 @@ def scrape(country_name,search_keyword):
     # chrome_options.add_argument('--no-sandbox')
     # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
-    driver = webdriver.Chrome(executable_path=os.environ.get(GOOGLE_CHROME_PATH),chrome_options=chrome_options)
-    website = 'https://nituk.ac.in/'
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+    website = 'https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=IN&media_type=all'
     # print("++++++++++++++",platform)
     # if platform =="win32":
     #     path = 'chromedriver.exe' 
