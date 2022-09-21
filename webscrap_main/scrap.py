@@ -33,7 +33,7 @@ def get_rand():
     return random.uniform(2.0, 2.9)
 
 def scrape(country_name,search_keyword):
-    print("+++++++++++++++++++++++++++",platform)
+    # print("+++++++++++++++++++++++++++",platform)
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -47,8 +47,8 @@ def scrape(country_name,search_keyword):
     # else:
     #     path= "chromedriver"
 
-    # # driver initialization 
-    # driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=option)
+    # # # driver initialization 
+    # driver = webdriver.Chrome(path)
     # open Google Chrome with chromedriver
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
@@ -67,7 +67,7 @@ def scrape(country_name,search_keyword):
     search_country.send_keys(country_name)
     time.sleep(get_rand())
     
-    select_country= driver.find_element(By.CLASS_NAME, 'j1p9ls3c hmv1tv54 tes86rjd kr054jk4 i6uybxyu qc5lal2y l4uc2m3f gh25dzvf t7p7dqev aeinzg81 cgu29s5g')
+    select_country= driver.find_element(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qc5lal2y.l4uc2m3f.gh25dzvf.t7p7dqev.aeinzg81.cgu29s5g')
     # select_country=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[3]/div/div[2]/div[1]')
     select_country.click()
     time.sleep(get_rand())
@@ -78,12 +78,13 @@ def scrape(country_name,search_keyword):
     ads_type.click()
     time.sleep(get_rand())
     # all_ads=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/div[1]')
-    all_ads= driver.find_element(By.CLASS_NAME, 'aeinzg81.dnr7xe2t.i85zmo3j.alzwoclg.jl2a5g8c.cgu29s5g.sr926ui1.l46e922u.p5mefues.j32recxq.j94dm2s7.trbvugp6.d2hqwtrz.o9wcebwi.b0eko5f3.fwlpnqze.h0zv973x.dy70pwuf.tes86rjd.i6uybxyu.hqy1a8si')
+    all_ads= driver.find_element(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qc5lal2y.ztn2w49o.nnmaouwa.aeinzg81')
     all_ads.click()
     time.sleep(get_rand())
-
     # Search specific key word
-    Search_key=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[3]/div/div/div[1]/div/input')
+    Search_key= driver.find_element(By.CLASS_NAME, 'f5m7p0br.iwso50tu.ggolc4ur.js4msrqk.p5mefues.j32recxq.j94dm2s7.trbvugp6.kxpv3n1v.aglvbi8b.c61n2bf6.sds2k780.m8h3af8h.l7ghb35v.kjdc1dyq.kmwttqpk.icdlwmnq.lq84ybu9.hf30pyar.q46jt4gp.r227ecj6.r5g9zsuq.gt60zsk1.om3e55n1.oshhggmv.mfclru0v.j7qd3pol')
+
+    # Search_key=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[3]/div/div/div[1]/div/input')
     time.sleep(get_rand())
     Search_key.send_keys(search_keyword)
     time.sleep(get_rand())
