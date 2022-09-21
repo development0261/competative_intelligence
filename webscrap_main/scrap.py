@@ -60,6 +60,9 @@ def scrape(country_name,search_keyword):
     # time to wait(in sec) till page gets loaded 
     time.sleep(5)
     print("after website******************************")
+    b= driver.find_elements(By.XPATH, "/html/body")
+    print(b)
+
     insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
     print("***************after insert*-*********************",insert_data)
     # selecting the country 
