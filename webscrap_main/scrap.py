@@ -45,7 +45,7 @@ def scrape(country_name,search_keyword):
     # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    website = 'https://www.facebook.com/ads/library/'
+    website = 'https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=IN&media_type=all'
     # print("++++++++++++++",platform)
     # if platform =="win32":
     #     path = 'chromedriver.exe' 
@@ -63,11 +63,11 @@ def scrape(country_name,search_keyword):
     b= driver.find_element(By.XPATH, "/html/body")
     print(b.text)
 
-    # insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
+    insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
     # print("***************after insert*-*********************",insert_data)
     # selecting the country 
-    country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
-    # country=insert_data[0]
+    # country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
+    country=insert_data[0]
     country.click()
     time.sleep(get_rand())
     
