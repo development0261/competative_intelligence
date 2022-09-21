@@ -45,6 +45,7 @@ def scrape(country_name,search_keyword):
     # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+    print("+________+_+_+_+_+_+_+_+_+_+_+_+",driver)
     website = 'https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=IN&media_type=all'
     # print("++++++++++++++",platform)
     # if platform =="win32":
