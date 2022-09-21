@@ -35,16 +35,16 @@ def get_rand():
 def scrape(country_name,search_keyword):
     # print("+++++++++++++++++++++++++++",platform)
     GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+    # CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = GOOGLE_CHROME_PATH
+    # chrome_options.binary_location = GOOGLE_CHROME_PATH
     # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # chrome_options.add_argument("--headless")
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
+    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('--no-sandbox')
+    # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     website = 'https://www.facebook.com/ads/library/'
     # print("++++++++++++++",platform)
     # if platform =="win32":
