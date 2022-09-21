@@ -53,25 +53,32 @@ def scrape(country_name,search_keyword):
     driver.get(website)
     # time to wait(in sec) till page gets loaded 
     time.sleep(get_rand())
-
+    insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
     # selecting the country 
-    country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
+    # country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
+    country=insert_data[1]
     country.click()
     time.sleep(get_rand())
-    search_country=driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/input[1]')
+    
+    search_country = driver.find_element(By.CLASS_NAME, '_58al')
+    # search_country=driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/input[1]')
     search_country.click()
     time.sleep(get_rand())
     search_country.send_keys(country_name)
     time.sleep(get_rand())
-    select_country=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[3]/div/div[2]/div[1]')
+    
+    select_country= driver.find_element(By.CLASS_NAME, 'j1p9ls3c hmv1tv54 tes86rjd kr054jk4 i6uybxyu qc5lal2y l4uc2m3f gh25dzvf t7p7dqev aeinzg81 cgu29s5g')
+    # select_country=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[3]/div/div[2]/div[1]')
     select_country.click()
     time.sleep(get_rand())
 
     # selecting the ads type 
-    ads_type = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
+    # ads_type = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
+    ads_type=insert_data[2]
     ads_type.click()
     time.sleep(get_rand())
-    all_ads=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/div[1]')
+    # all_ads=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/div[1]')
+    all_ads= driver.find_element(By.CLASS_NAME, 'aeinzg81.dnr7xe2t.i85zmo3j.alzwoclg.jl2a5g8c.cgu29s5g.sr926ui1.l46e922u.p5mefues.j32recxq.j94dm2s7.trbvugp6.d2hqwtrz.o9wcebwi.b0eko5f3.fwlpnqze.h0zv973x.dy70pwuf.tes86rjd.i6uybxyu.hqy1a8si')
     all_ads.click()
     time.sleep(get_rand())
 
