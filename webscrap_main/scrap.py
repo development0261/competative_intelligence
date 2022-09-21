@@ -35,6 +35,10 @@ def get_rand():
 def scrape(country_name,search_keyword):
     # print("+++++++++++++++++++++++++++",platform)
     GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    if platform =="win32":
+        path = '..\chromedriver.exe' 
+    else:
+        path= "..\chromedriver"
     # CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     chrome_options = webdriver.ChromeOptions()
     # chrome_options.binary_location = GOOGLE_CHROME_PATH
@@ -49,9 +53,9 @@ def scrape(country_name,search_keyword):
     website = 'https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=IN&media_type=all'
     # print("++++++++++++++",platform)
     # if platform =="win32":
-    #     path = 'chromedriver.exe' 
+    #     path = '..\chromedriver.exe' 
     # else:
-    #     path= "chromedriver"
+    #     path= "..\chromedriver"
 
     # # # driver initialization 
     # driver = webdriver.Chrome(path)
