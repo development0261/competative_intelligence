@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mike_henry/', include('webscrap_main.urls'))
+    path('', include('webscrap_main.urls'))
     # path('firebase-cloud-messaging-push-scope.js', (TemplateView.as_view(template_name="firebase-cloud-messaging-push-scope.js", 
     #     content_type='text/javascript', )), name='firebase-cloud-messaging-push-scope.js'),
 ]
