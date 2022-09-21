@@ -45,7 +45,7 @@ def scrape(country_name,search_keyword):
     # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    website = 'https://www.amazon.in/'
+    website = 'https://nituk.ac.in/'
     # print("++++++++++++++",platform)
     # if platform =="win32":
     #     path = 'chromedriver.exe' 
