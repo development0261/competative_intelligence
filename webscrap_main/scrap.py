@@ -56,7 +56,7 @@ def scrape(country_name,search_keyword):
     insert_data = driver.find_elements(By.CLASS_NAME, 'j1p9ls3c.hmv1tv54.tes86rjd.kr054jk4.i6uybxyu.qm54mken.lq84ybu9.hf30pyar.oshhggmv.nnmaouwa.aeinzg81')
     # selecting the country 
     # country = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
-    country=insert_data[1]
+    country=insert_data[0]
     country.click()
     time.sleep(get_rand())
     
@@ -74,7 +74,7 @@ def scrape(country_name,search_keyword):
 
     # selecting the ads type 
     # ads_type = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div') 
-    ads_type=insert_data[2]
+    ads_type=insert_data[1]
     ads_type.click()
     time.sleep(get_rand())
     # all_ads=driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/div[4]/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/div[1]')
