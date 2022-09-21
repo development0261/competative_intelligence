@@ -33,6 +33,7 @@ def get_rand():
     return random.uniform(2.0, 2.9)
 
 def scrape(country_name,search_keyword):
+    print("+++++++++++++++++++++++++++",platform)
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
