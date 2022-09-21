@@ -3,7 +3,7 @@ from .import views
 from django.contrib import admin
 
 urlpatterns=[
-    path('', views.webscrap_indexpg, name= 'webscrap_indexpg'),
+    path('mike_henry/', views.webscrap_indexpg, name= 'webscrap_indexpg'),
     path('token/' ,views.token, name= 'token'),
     # path('send/' ,views.webscrap_indexpg, name= 'webscrap_indexpg'),
     path('firebase-messaging-sw.js',views.showFirebaseJS,name="show_firebase_js"),
