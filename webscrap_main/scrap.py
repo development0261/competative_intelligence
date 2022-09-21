@@ -44,7 +44,7 @@ def scrape(country_name,search_keyword):
     # chrome_options.add_argument('--no-sandbox')
     # driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chrome_options)
     
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=os.environ.get(GOOGLE_CHROME_PATH),chrome_options=chrome_options)
     website = 'https://nituk.ac.in/'
     # print("++++++++++++++",platform)
     # if platform =="win32":
